@@ -32,8 +32,7 @@ public class MainMenu : MonoBehaviour
 
     public void SettingsButton()
     {
-        SceneManager.UnloadScene("MainMenu");
-        SceneManager.LoadScene("SettingsMenu");
+        
     }
 
     public void AboutButton()
