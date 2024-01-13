@@ -38585,6 +38585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: snacks
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b42d8ed352e936b408a1eac1967fad87, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b42d8ed352e936b408a1eac1967fad87, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -93926,6 +93930,7 @@ GameObject:
   - component: {fileID: 1949510526}
   - component: {fileID: 1949510525}
   - component: {fileID: 1949510524}
+  - component: {fileID: 1949510527}
   m_Layer: 0
   m_Name: SpeletajaKorpus
   m_TagString: Untagged
@@ -94021,6 +94026,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949510522}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1949510527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949510522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46529a254547a8443bd46c07a6197822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionPoint: {fileID: 1117605543}
+  _interactionPointRadius: 0.2
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _numFound: 0
 --- !u!43 &1959788659
 Mesh:
   m_ObjectHideFlags: 0
