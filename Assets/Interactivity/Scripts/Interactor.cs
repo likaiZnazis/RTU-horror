@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class aktivators : MonoBehaviour
+public class Interactor : MonoBehaviour
 {
     [SerializeField] private Transform _interactionPoint;
     [SerializeField] private float _interactionPointRadius = 0.5f;
@@ -15,7 +15,8 @@ public class aktivators : MonoBehaviour
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, (int)_interactableMask);
 
-        if (Input.GetKeyDown(KeyCode.E))
+        //Ja objekti ir atrasti un ir piespests E taustins
+        if (_numFound > 0 && Input.GetKeyDown(KeyCode.E))
         {
             InteractWithObject();
         }
@@ -25,7 +26,8 @@ public class aktivators : MonoBehaviour
     {
         for (int i = 0; i < _numFound; i++)
         {
-            Darbiba interactable = _colliders[i].GetComponent<Darbiba>();
+            var interactable = _colliders[i].GetComponent<IInteractable>();
+
             if (interactable != null)
             {
                 interactable.Interact(this);

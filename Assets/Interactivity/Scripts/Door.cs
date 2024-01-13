@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WendingMachine : MonoBehaviour, IInteractable
+public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _promt;
     public string InteractionPromt => _promt;
 
     public bool Interact(Interactor interactor)
     {
-        //Check if player has money, if has then return true;
-        Debug.Log(message:"Dabuj dzērienu");
+        //Check if player has key/card/whatever, if has then return true;
+        Debug.Log(message:"Atver durvis");
         return true;
     }
 }
