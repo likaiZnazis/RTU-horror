@@ -28,7 +28,6 @@ public class Door : MonoBehaviour, IInteractable
             Debug.Log(message:"Aizver mazās durvis");
         }
 
-        // Debug.Log(message:"Atver mazās durvis");
         return true;
     }
 }
