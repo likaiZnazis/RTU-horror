@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChairComputer : MonoBehaviour
+public class ChairComputer : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private string _promt;
+    public string InteractionPromt => _promt;
 
-    // Update is called once per frame
-    void Update()
+    public bool Interact(Interactor interactor)
     {
-        
+        //Check if player has key/card/whatever, if has then return true;
+        Debug.Log(message:"Apsēžas pie datora");
+        return true;
     }
 }

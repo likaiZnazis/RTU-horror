@@ -10,7 +10,7 @@ public class Door : MonoBehaviour, IInteractable
     public bool Interact(Interactor interactor)
     {
         //Check if player has key/card/whatever, if has then return true;
-        Debug.Log(message:"Atver durvis");
+        Debug.Log(message:"Atver mazās durvis");
         return true;
     }
 }
