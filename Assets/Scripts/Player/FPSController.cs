@@ -21,6 +21,7 @@ public class FPSController : MonoBehaviour
 
     public bool canMove = true;
 
+    public Inventory inventory;
 
     CharacterController characterController;
     void Start()
@@ -76,4 +77,5 @@ public class FPSController : MonoBehaviour
 
         #endregion
     }
+
 }
