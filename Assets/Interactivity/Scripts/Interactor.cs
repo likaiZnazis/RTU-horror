@@ -11,17 +11,31 @@ public class Interactor : MonoBehaviour
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] private int _numFound;
 
-    public Inventory inventory;
+    private GameObject prompt_text;
 
+    public Inventory inventory;
+    private void Start(){
+        prompt_text = GameObject.FindWithTag("UIText");
+        prompt_text.SetActive(false);
+
+    }
     private void Update()
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, (int)_interactableMask);
+        if(_numFound>0){
+            prompt_text.SetActive(true);
 
+        }else{
+            prompt_text.SetActive(false);
+
+        }
         //Ja objekti ir atrasti un ir piespests E taustins
         if (_numFound > 0 && Input.GetKeyDown(KeyCode.E))
         {
             InteractWithObject();
             pickupItem();
+            prompt_text.SetActive(false);
+
         }
     }
 
@@ -37,6 +51,7 @@ public class Interactor : MonoBehaviour
                 break; 
             }
         }
+
     }
     public void pickupItem()
     {
@@ -59,6 +74,7 @@ public class Interactor : MonoBehaviour
             }
         }
     }
+
 
 
     private void OnDrawGizmos()
