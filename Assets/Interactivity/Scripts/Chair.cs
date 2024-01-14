@@ -9,7 +9,6 @@ public class Chair : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        //Check if player has key/card/whatever, if has then return true;
         Debug.Log(message:"Apsēžas vienkārši");
         return true;
     }
