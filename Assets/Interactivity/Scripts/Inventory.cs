@@ -16,7 +16,6 @@ public class Inventory : MonoBehaviour
         if (mItems.Count < SLOTS)
         {
             mItems.Add(item);
-            UnityEngine.Debug.Log(message: "liek ieksa");
             if (ItemAdded != null)
             {
                 ItemAdded(this, new InventoryEventArgs(item));

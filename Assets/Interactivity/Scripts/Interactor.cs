@@ -21,6 +21,7 @@ public class Interactor : MonoBehaviour
         if (_numFound > 0 && Input.GetKeyDown(KeyCode.E))
         {
             InteractWithObject();
+            pickupItem();
         }
     }
 
@@ -33,7 +34,7 @@ public class Interactor : MonoBehaviour
             if (interactable != null)
             {
                 interactable.Interact(this);
-                break; // Assuming you only want to interact with one object at a time
+                break; 
             }
         }
     }
@@ -41,27 +42,25 @@ public class Interactor : MonoBehaviour
     {
         for (int i = 0; i < _numFound; i++)
         {
-            var interactable = _colliders[i].GetComponent<IInteractable>();
-           
+            var interactable = _colliders[i].GetComponent<IInventoryItem>();
 
             if (interactable != null)
             {
-                UnityEngine.Debug.Log("Item interacted: ");
-                interactable.Interact(this);
 
-                // Assuming the interactable object implements IInventoryItem
                 IInventoryItem inventoryItem = interactable as IInventoryItem;
 
                 if (inventoryItem != null)
                 {
-                    UnityEngine.Debug.Log("Item added to inventory: ");
+
                     inventory.AddItem(inventoryItem);
                 }
 
-                break; // Assuming you only want to interact with one object at a time
+                break; 
             }
         }
     }
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

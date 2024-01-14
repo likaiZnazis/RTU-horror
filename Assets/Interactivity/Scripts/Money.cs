@@ -37,7 +37,6 @@ public class Money : MonoBehaviour, IInteractable, IInventoryItem
     public bool Interact(Interactor interactor)
     {
         OnPickUp();
-        UnityEngine.Debug.Log(message: "panema naudu");
         return true;
     }
 }
