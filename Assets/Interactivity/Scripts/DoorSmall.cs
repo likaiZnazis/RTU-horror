@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
@@ -17,17 +18,27 @@ public class Door : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        _isOpen = !_isOpen;
+        
+        foreach (var item in interactor.inventory.mItems)
+        {
+            if (item.Name == "Key" && !_isOpen)
+            {
+                _animator.Play("Opening 1");
+                _isOpen = true;
+                return true;
+            }
+            else if(item.Name == "Key" && _isOpen)
+            {
+                _isOpen = false;
+                _animator.Play("Closing 1");
+                return true;
+            }
+            else
+            {
+                UnityEngine.Debug.Log("Nav atslegas");
+            }
 
-        //Check if player has key/card/whatever, if has then return true;
-        if(_isOpen){
-            _animator.Play("Opening 1");
-            Debug.Log(message:"Atver mazās durvis");
-        }else{
-			_animator.Play("Closing 1");
-            Debug.Log(message:"Aizver mazās durvis");
         }
-
-        return true;
+        return false;
     }
 }
