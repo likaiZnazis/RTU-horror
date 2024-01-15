@@ -23,7 +23,8 @@ public class Door : MonoBehaviour, IInteractable
         if(_isOpen){
             _animator.Play("Opening 1");
             Debug.Log(message:"Atver mazās durvis");
-        }else{
+        }
+        else{
 			_animator.Play("Closing 1");
             Debug.Log(message:"Aizver mazās durvis");
         }

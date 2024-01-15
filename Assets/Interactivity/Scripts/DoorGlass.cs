@@ -18,6 +18,12 @@ public class DoorGlass : MonoBehaviour, IInteractable
     private Animator _animator;
     private bool _isOpen = false;
     public string InteractionPromt => _promt;
+    [SerializeField] private AudioSource doorOpenAudioSource;
+    [SerializeField] private float openDelay = 0;
+    [Space(10)]
+    [SerializeField] private AudioSource doorCloseAudioSource;
+    [SerializeField] private float closeDelay = 0.8f;
+
 
    private void Start()
     {
@@ -33,11 +39,13 @@ public class DoorGlass : MonoBehaviour, IInteractable
         if(_isOpen){
             _animator.Play("Opening 1");
             _animator.Play("Opening");
+            doorOpenAudioSource.PlayDelayed(openDelay);
 
             Debug.Log(message:"Atver lielās durvis");
         }else{
 			_animator.Play("Closing 1");
             _animator.Play("Closing");
+            doorOpenAudioSource.PlayDelayed(closeDelay);
 
             Debug.Log(message:"Aizver lielās durvis");
         }
